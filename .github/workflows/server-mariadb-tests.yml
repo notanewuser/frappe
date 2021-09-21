@@ -119,12 +119,3 @@ jobs:
         env:
           CI_BUILD_ID: ${{ github.run_id }}
           ORCHESTRATOR_URL: http://test-orchestrator.frappe.io
-
-      - name: Upload coverage data
-        if: ${{ steps.check-build.outputs.build == 'strawberry' }}
-        uses: codecov/codecov-action@v2
-        with:
-          name: MariaDB
-          fail_ci_if_error: true
-          files: /home/runner/frappe-bench/sites/coverage.xml
-          verbose: true
